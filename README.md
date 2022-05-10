@@ -13,7 +13,11 @@
 
 ## Getting started:
 
-### 0.0, 0 or '0.0' in frequencies or mcls means that this chunk has been padded
+
+### Padding: 0.0, 0 or '0.0' in frequencies or mcls means that this chunk has been padded
+
+### Chunk size: 150
+### Overlap: 15
 
 ```python
 import numpy as np
