@@ -125,13 +125,13 @@ def prep_tvt_from_func_1(validation_frac = 0.05, test_frac = 0.05,
 
     for index, row in df_a.iterrows():
         l = len(row["token_ids"])
-        raw_t = np.zeros(l + chunk_offset).astype(int)
+        raw_t = np.zeros(max(l + chunk_offset, chunk_len)).astype(int)
         raw_t[0: l] = row["token_ids"]
-        raw_l = np.zeros(l + chunk_offset).astype(int)
+        raw_l = np.zeros(max(l + chunk_offset, chunk_len)).astype(int)
         raw_l[0: l] = row["labels"]
-        raw_masks = np.zeros(l+ chunk_offset).astype(int)
+        raw_masks = np.zeros(max(l + chunk_offset, chunk_len)).astype(int)
         raw_masks[0:l] = np.ones(l).astype(int)
-        raw_tokens = ['pad' for i in range(0,l+ chunk_offset)]
+        raw_tokens = ['pad' for i in range(0, max(l + chunk_offset, chunk_len))]
         raw_tokens[0: l] = row["tokens"]
         chunk_n = 1
 
@@ -144,6 +144,7 @@ def prep_tvt_from_func_1(validation_frac = 0.05, test_frac = 0.05,
             attention_masks.append(raw_masks[i:i+chunk_len])
             tokens.append(raw_tokens[i:i+chunk_len])
             chunk_n = chunk_n + 1
+
 
     df_chunked = pd.DataFrame({"origin": origin,
                                "chunk": chunk,
