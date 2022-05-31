@@ -135,7 +135,7 @@ def prep_tvt_from_func_1(validation_frac = 0.05, test_frac = 0.05,
         raw_tokens[0: l] = row["tokens"]
         chunk_n = 1
 
-        for i in range(0,l + chunk_offset - chunk_len, chunk_offset):
+        for i in range(0,max(1, l + chunk_offset - chunk_len), chunk_offset):
             origin.append(row["origin"])
             chunk.append(chunk_n)
             dset.append(row['set'])
