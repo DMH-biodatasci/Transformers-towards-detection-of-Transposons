@@ -153,6 +153,10 @@ def prep_tvt_from_func_1(validation_frac = 0.05, test_frac = 0.05,
                                "attention_masks" : attention_masks,
                                "labels": labels})
     
+    df_chunked.loc[df_chunked["set"] == 0, "set"] = "training"
+    df_chunked.loc[df_chunked["set"] == 1, "set"] = "validation"
+    df_chunked.loc[df_chunked["set"] == 2, "set"] = "test"
+    
     return df_chunked, tokenize_table
     
 def read_tvt():
