@@ -56,7 +56,7 @@ def prep_tvt_from_func_1(validation_frac = 0.05, test_frac = 0.05,
     col_num_TE = []
     col_max_len_TE = []
 
-    for sequence in os.listdir(os.path.join("..", "data", "original_data", "contigs_func")):
+    for sequence in sorted(os.listdir(os.path.join("..", "data", "original_data", "contigs_func"))):
         df_c = pd.read_csv(os.path.join("..", "data", "original_data", "contigs_func", sequence), 
                            sep = "\t", 
                            names = ("tokens", "strand"), 
