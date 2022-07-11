@@ -1,3 +1,12 @@
 /dataset
 .ipynb_checkpoints
 /data
+logs/
+models/
+code/template.csv
+code/predictions.csv
+code/output_check.txt
+code/models/
+code/final_results
+code/df_filter2.csv
+code/df_filter.csv
